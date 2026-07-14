@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es-CL">
 <head>
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18318931266"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -356,6 +356,34 @@
     border:1px solid var(--line-strong); padding:6px 12px; border-radius:999px;
   }
 
+  /* ---------- Marcas ---------- */
+  .brands-grid{
+    display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+  }
+  .brand-pill{
+    font-family:var(--mono); font-size:12.5px; font-weight:500; letter-spacing:0.04em;
+    color:var(--steel-300); border:1px solid var(--line-strong);
+    padding:8px 16px; border-radius:999px; background:var(--bg-elevated);
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .brand-pill:hover{border-color:var(--blue-400); color:var(--steel-100);}
+
+  /* ---------- Comunas ---------- */
+  .communes-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(160px,1fr));
+    gap:10px;
+  }
+  .commune-btn{
+    display:flex; align-items:center; gap:8px;
+    font-family:var(--body); font-size:13.5px; font-weight:500;
+    color:var(--steel-300); border:1px solid var(--line); border-radius:10px;
+    padding:11px 14px; background:var(--bg-elevated); cursor:pointer;
+    text-decoration:none; transition:background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .commune-btn:hover{background:var(--bg-elevated-2); border-color:var(--blue-400); color:var(--steel-100);}
+  .commune-btn svg{flex-shrink:0; color:var(--blue-400);}
+
   /* ---------- CTA ---------- */
   .cta{
     border:1px solid var(--line); border-radius:20px;
@@ -479,7 +507,8 @@
     <nav class="nav-links">
       <a href="#servicios">Servicios</a>
       <a href="#por-que">Por qué CerraVolt</a>
-      <a href="#cobertura">Cobertura</a>
+      <a href="#comunas">Comunas</a>
+      <a href="#marcas">Marcas</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <a class="btn btn-primary" id="navWaBtn" href="#" target="_blank" rel="noopener">
@@ -563,6 +592,31 @@
           <h3>Soluciones electrónicas con profesionales</h3>
           <p>Electroimanes, destrabadores eléctricos y domótica, instalados por técnicos con instalaciones eléctricas certificadas.</p>
           <span class="tag">SEC</span>
+        </div>
+
+        <div class="service-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a9 9 0 110 18A9 9 0 0112 2z"/><path d="M12 7v4l3 3"/><path d="M7 17l-2 2M17 17l2 2"/></svg>
+          <h3>Apertura de cajas fuertes</h3>
+          <p>Abrimos cajas fuertes residenciales y comerciales sin destruirlas. Combinaciones nuevas garantizadas.</p>
+          <span class="tag">Urgencia 24/7</span>
+        </div>
+
+        <div class="service-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="17" cy="17" r="3"/><path d="M17 15v2l1 1"/></svg>
+          <h3>Cambio de cilindros</h3>
+          <p>Reemplazo de cilindros y combinaciones. Llaves nuevas en el momento, compatible con cualquier marca.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M5 13l4 4L3 21l4-4"/><path d="M9.5 9.5l5 5"/></svg>
+          <h3>Reparación de cerraduras</h3>
+          <p>¿Tu chapa está pegada o no gira bien? Reparamos cualquier marca y modelo el mismo día, sin reemplazar si no es necesario.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/><path d="M10 8h4M10 16h4"/></svg>
+          <h3>Reparación de quicio y marcos</h3>
+          <p>Reforzamos y reparamos el quicio o marco de tu puerta tras un intento de robo o desgaste. Dejamos la puerta segura el mismo día.</p>
         </div>
 
       </div>
@@ -656,14 +710,11 @@
       <div>
         <div class="eyebrow">Cobertura</div>
         <h2 style="font-family:var(--display); font-weight:600; font-size:clamp(26px,3.4vw,38px); margin-bottom:14px;">Presentes en toda la Región Metropolitana</h2>
-        <p style="color:var(--steel-500); font-size:15.5px; margin-bottom:8px;">Atendemos urgencias e instalaciones programadas en Santiago y sus alrededores, incluyendo:</p>
+        <p style="color:var(--steel-500); font-size:15.5px; margin-bottom:8px;">Atendemos urgencias e instalaciones programadas en Santiago y sus alrededores.</p>
         <div class="chips">
-          <span class="chip">Santiago Centro</span>
-          <span class="chip">Providencia</span>
-          <span class="chip">Las Condes</span>
-          <span class="chip">Ñuñoa</span>
-          <span class="chip">Maipú</span>
-          <span class="chip">+ toda la RM</span>
+          <span class="chip">Urgencias 24/7</span>
+          <span class="chip">Toda la RM</span>
+          <span class="chip">Certificado SEC</span>
         </div>
       </div>
       <div class="coverage-visual">
@@ -675,6 +726,65 @@
         <div class="core">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M5 13a8 8 0 0114 0"/><path d="M8.5 16a4.5 4.5 0 017 0"/><circle cx="12" cy="19" r="1.4" fill="#fff" stroke="none"/></svg>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comunas">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Comunas</div>
+        <h2>¿Dónde estás? Llegamos a ti</h2>
+        <p>Atendemos urgencias e instalaciones en todas estas comunas de Santiago. Haz clic en la tuya para escribirnos directo.</p>
+      </div>
+      <div class="communes-grid">
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Santiago%20Centro" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Santiago Centro</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Providencia" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Providencia</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Las%20Condes" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Las Condes</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Vitacura" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Vitacura</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20%C3%91u%C3%B1oa" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Ñuñoa</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Lo%20Barnechea" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lo Barnechea</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20La%20Reina" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>La Reina</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Pe%C3%B1alol%C3%A9n" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Peñalolén</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Macul" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Macul</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20San%20Miguel" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>San Miguel</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Maip%C3%BA" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Maipú</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Pudahuel" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Pudahuel</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Quilicura" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Quilicura</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Huechuraba" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Huechuraba</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Recoleta" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Recoleta</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Independencia" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Independencia</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Cerro%20Navia" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cerro Navia</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Lo%20Prado" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lo Prado</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Estaci%C3%B3n%20Central" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Estación Central</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20La%20Florida" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>La Florida</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20La%20Cisterna" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>La Cisterna</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20San%20Bernardo" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>San Bernardo</a>
+        <a class="commune-btn" href="https://wa.me/56922412023?text=Necesito%20un%20cerrajero%20en%20Buin" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Buin</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="marcas">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Marcas</div>
+        <h2>Trabajamos con las mejores marcas</h2>
+        <p>Cerraduras y chapas de alta seguridad nacionales e importadas. Instalamos y reparamos cualquier modelo.</p>
+      </div>
+      <div class="brands-grid">
+        <span class="brand-pill">Yale</span>
+        <span class="brand-pill">Schlage</span>
+        <span class="brand-pill">Mul-T-Lock</span>
+        <span class="brand-pill">Scanavini</span>
+        <span class="brand-pill">Phillips</span>
+        <span class="brand-pill">Kallay</span>
+        <span class="brand-pill">Odis</span>
+        <span class="brand-pill">Cisa</span>
+        <span class="brand-pill">Fac</span>
+        <span class="brand-pill">Tesa</span>
+        <span class="brand-pill">Geo</span>
+        <span class="brand-pill">+ otras marcas</span>
       </div>
     </div>
   </section>
