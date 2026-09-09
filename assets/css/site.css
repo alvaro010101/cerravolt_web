@@ -455,6 +455,34 @@
   .pain-card h3{font-family:var(--display); font-size:18px; font-weight:600; margin-bottom:10px;}
   .pain-card p{font-size:14px; color:var(--steel-500); line-height:1.6;}
 
+  /* ---------- Reseñas de Google ---------- */
+  .reviews-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;
+  }
+  .review-card{
+    border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 24px; background:var(--bg-elevated);
+    display:flex; flex-direction:column; gap:14px;
+    transition:background .25s ease;
+  }
+  .review-card:hover{background:var(--bg-elevated-2);}
+  .review-head{display:flex; align-items:center; gap:12px;}
+  .review-avatar{
+    width:42px; height:42px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--blue-500), var(--blue-700));
+    color:#fff; font-family:var(--display); font-weight:700; font-size:16px;
+  }
+  .review-name{font-size:14.5px; font-weight:600; color:var(--steel-100);}
+  .review-stars{color:var(--amber-400); font-size:13px; letter-spacing:1px; margin-top:2px;}
+  .review-text{font-size:14px; color:var(--steel-300); line-height:1.6;}
+  .review-tag{
+    align-self:flex-start;
+    font-family:var(--mono); font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--blue-400); border:1px solid rgba(79,195,247,0.3);
+    padding:3px 9px; border-radius:999px;
+  }
+
   /* ---------- Why cards (numbered) ---------- */
   .why-cards{
     display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px;
@@ -541,6 +569,12 @@
     font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:0.02em;
     color:#0a1a33; white-space:nowrap; line-height:1.2;
   }
+  .payment-badge{
+    display:inline-flex; align-items:center;
+    background:#ffffff; border-radius:10px; padding:8px 14px;
+    box-shadow:0 6px 18px -4px rgba(0,0,0,0.35);
+  }
+  .payment-badge img{height:20px; width:auto; display:block;}
 
   /* ---------- Floating WhatsApp ---------- */
   .fab{
