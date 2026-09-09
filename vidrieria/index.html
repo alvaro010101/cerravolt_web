@@ -12,6 +12,21 @@
 
   gtag('config', 'AW-18318931266');
 </script>
+<!-- Event snippet for Contacto conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18318931266/LsunCIqEoPIcEMLqkp9E',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 <title>Reparación de Quicios, Mamparas y Vidrios en Santiago | CerraVolt</title>
 <meta name="description" content="Mantención y reparación de mamparas de cristal: cambio de vidrios, alineación de quicios y regulación de rieles en Santiago y toda la RM. Cotización sin costo.">
 <link rel="canonical" href="https://cerravolt.cl/vidrieria/">
@@ -369,10 +384,18 @@
 
 <script>
   const WA_NUMBER = "56922412023";
-  const WA_MSG = encodeURIComponent("Hola CerraVolt, necesito reparar una mampara, un quicio o un vidrio.");
+  const WA_MSG = encodeURIComponent("Hola CerraVolt, me gustaría que me ayuden con un servicio de cerrajería, vidriería o electricidad.");
   const waUrl = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
   document.querySelectorAll('#navWaBtn, .hero-wa-btn, .cta-wa-btn, .footer-wa-link, #fabWa, .nav-mobile-wa-btn').forEach(el => {
     el.setAttribute('href', waUrl);
+  });
+
+  // Google Ads: report a "Contacto" conversion on WhatsApp/Llamar clicks
+  document.querySelectorAll('a[href^="https://wa.me/"], a[href^="tel:"]').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      gtag_report_conversion(this.href);
+    });
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
