@@ -12,6 +12,21 @@
 
   gtag('config', 'AW-18318931266');
 </script>
+<!-- Event snippet for Contacto conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18318931266/LsunCIqEoPIcEMLqkp9E',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 <title>CerraVolt | Cerrajero de Urgencia y Seguridad Inteligente en Santiago RM</title>
 <meta name="description" content="CerraVolt: cerrajería de urgencia 24/7 en toda la Región Metropolitana. Cambio de cerraduras, cerraduras inteligentes, control de acceso y electricidad certificada SEC.">
 <link rel="icon" href="assets/img/logo-icon.png">
@@ -635,10 +650,18 @@
 <script>
   // WhatsApp link wiring
   const WA_NUMBER = "56922412023"; // formato internacional sin '+' ni espacios
-  const WA_MSG = encodeURIComponent("Hola CerraVolt, necesito ayuda con un servicio de cerrajería.");
+  const WA_MSG = encodeURIComponent("Hola CerraVolt, me gustaría que me ayuden con un servicio de cerrajería, vidriería o electricidad.");
   const waUrl = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
   document.querySelectorAll('#navWaBtn, .hero-wa-btn, .cta-wa-btn, .footer-wa-link, #fabWa, #midWaBtn, .nav-mobile-wa-btn').forEach(el => {
     el.setAttribute('href', waUrl);
+  });
+
+  // Google Ads: report a "Contacto" conversion on WhatsApp/Llamar clicks
+  document.querySelectorAll('a[href^="https://wa.me/"], a[href^="tel:"]').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      gtag_report_conversion(this.href);
+    });
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
