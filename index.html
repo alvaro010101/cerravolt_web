@@ -703,7 +703,7 @@ function gtag_report_conversion(url) {
 <script>
   // WhatsApp link wiring
   const WA_NUMBER = "56922412023"; // formato internacional sin '+' ni espacios
-  const WA_MSG = encodeURIComponent("Hola CerraVolt, me gustaría que me ayuden con un servicio de cerrajería, vidriería o electricidad.");
+  const WA_MSG = encodeURIComponent("Hola, necesito ayuda.");
   const waUrl = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
   document.querySelectorAll('#navWaBtn, .hero-wa-btn, .cta-wa-btn, .footer-wa-link, #fabWa, #midWaBtn, .nav-mobile-wa-btn').forEach(el => {
     el.setAttribute('href', waUrl);
@@ -712,8 +712,7 @@ function gtag_report_conversion(url) {
   // Google Ads: report a "Contacto" conversion on WhatsApp/Llamar clicks
   document.querySelectorAll('a[href^="https://wa.me/"], a[href^="tel:"]').forEach(el => {
     el.addEventListener('click', function(e) {
-      e.preventDefault();
-      gtag_report_conversion(this.href);
+      gtag_report_conversion();
     });
   });
 
