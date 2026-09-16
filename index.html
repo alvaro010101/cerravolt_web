@@ -37,130 +37,6 @@ function gtag_report_conversion(url) {
 </head>
 <body>
 
-<!-- ========== SPLASH SCREEN ========== -->
-<div id="cerravolt-splash" style="
-  position:fixed; inset:0; z-index:99999;
-  background: linear-gradient(160deg, #07142a 0%, #0f2f55 55%, #07142a 100%);
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  overflow:hidden;
-">
-  <!-- Pistas PCB decorativas de fondo -->
-  <svg id="splash-pcb" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08;" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="#2e9fe0" stroke-width="1.4" fill="none">
-      <polyline points="0,80 60,80 60,140 160,140"/>
-      <circle cx="160" cy="140" r="5" fill="#2e9fe0"/>
-      <polyline points="160,140 220,140 220,60 360,60"/>
-      <circle cx="220" cy="140" r="3" fill="none" stroke="#2e9fe0"/>
-      <polyline points="360,60 360,200 480,200 480,280"/>
-      <circle cx="360" cy="60" r="5" fill="#2e9fe0"/>
-      <polyline points="0,250 80,250 80,320 200,320 200,200 340,200"/>
-      <circle cx="80" cy="250" r="3" fill="none" stroke="#2e9fe0"/>
-      <circle cx="340" cy="200" r="5" fill="#2e9fe0"/>
-      <polyline points="500,0 500,100 600,100"/>
-      <circle cx="500" cy="100" r="4" fill="#2e9fe0"/>
-      <polyline points="120,0 120,40 280,40 280,160 420,160 420,360 600,360"/>
-      <circle cx="280" cy="40" r="3" fill="none" stroke="#2e9fe0"/>
-      <circle cx="420" cy="160" r="5" fill="#2e9fe0"/>
-    </g>
-  </svg>
-
-  <!-- Logo (escala desde cero) -->
-  <div id="splash-logo" style="
-    width:110px; height:110px;
-    transform:scale(0); opacity:0;
-    transition: transform 0.6s cubic-bezier(.34,1.56,.64,1), opacity 0.4s ease;
-    margin-bottom:24px;
-  ">
-    <img src="assets/img/logo-icon.png"
-         alt="CerraVolt" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 18px #1a8fd1cc);">
-  </div>
-
-  <!-- Título (aparece letra a letra) -->
-  <div id="splash-title" style="
-    font-family:'Montserrat',sans-serif; font-size:clamp(28px,6vw,48px); font-weight:900;
-    letter-spacing:0.18em; color:#ffffff; text-transform:uppercase;
-    overflow:hidden; height:1.2em; display:flex;
-    text-shadow: 0 0 20px #1a8fd199;
-  ">
-    <span id="splash-letters" style="display:inline-flex;gap:0;"></span>
-  </div>
-
-  <!-- Tagline fade-in -->
-  <div id="splash-tagline" style="
-    font-family:'Montserrat',sans-serif; font-size:clamp(11px,2vw,15px);
-    letter-spacing:0.3em; color:#4fc3f7; text-transform:uppercase;
-    margin-top:10px; opacity:0;
-    transition: opacity 0.6s ease 0.1s;
-  ">SEGURIDAD INTELIGENTE</div>
-
-  <!-- Línea acento inferior -->
-  <div id="splash-line" style="
-    position:absolute; bottom:0; left:0; right:0; height:3px;
-    background:linear-gradient(90deg,transparent 0%,#4fc3f7 40%,#2e9fe0 60%,transparent 100%);
-    transform:scaleX(0); transform-origin:center;
-    transition: transform 0.7s cubic-bezier(.25,.46,.45,.94) 0.3s;
-  "></div>
-</div>
-
-<script>
-(function(){
-  // Solo mostrar si NO se ha mostrado en esta sesión
-  if (sessionStorage.getItem('cv_splash_shown')) {
-    document.getElementById('cerravolt-splash').style.display='none';
-    return;
-  }
-  sessionStorage.setItem('cv_splash_shown','1');
-
-  var splash = document.getElementById('cerravolt-splash');
-  var logo   = document.getElementById('splash-logo');
-  var lettersEl = document.getElementById('splash-letters');
-  var tagline = document.getElementById('splash-tagline');
-  var line   = document.getElementById('splash-line');
-  var word   = 'CERRAVOLT';
-
-  // Paso 1 (150ms): escala logo
-  setTimeout(function(){
-    logo.style.transform = 'scale(1)';
-    logo.style.opacity   = '1';
-  }, 150);
-
-  // Paso 2 (700ms): escribir letras una a una
-  var delay = 700;
-  for (var i = 0; i < word.length; i++) {
-    (function(ch, d){
-      setTimeout(function(){
-        var span = document.createElement('span');
-        span.textContent = ch;
-        span.style.cssText = 'display:inline-block;opacity:0;transform:translateY(30px);transition:all 0.25s ease;color:'+(i>=5?'#4fc3f7':'#ffffff');
-        lettersEl.appendChild(span);
-        requestAnimationFrame(function(){
-          requestAnimationFrame(function(){
-            span.style.opacity   = '1';
-            span.style.transform = 'translateY(0)';
-          });
-        });
-      }, d);
-    })(word[i], delay + i * 100);
-  }
-
-  // Paso 3 (1750ms): tagline + línea
-  setTimeout(function(){
-    tagline.style.opacity = '1';
-    line.style.transform  = 'scaleX(1)';
-  }, 1750);
-
-  // Paso 4 (2800ms): fade out splash
-  setTimeout(function(){
-    splash.style.transition = 'opacity 0.7s ease';
-    splash.style.opacity = '0';
-    splash.style.pointerEvents = 'none';
-    setTimeout(function(){ splash.style.display = 'none'; }, 750);
-  }, 2800);
-})();
-</script>
-<!-- ========== /SPLASH SCREEN ========== -->
-
-
 <svg class="circuit-bg" id="circuitBg" viewBox="0 0 1440 1600" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="traceGrad" x1="0" y1="0" x2="1" y2="1">
@@ -217,7 +93,7 @@ function gtag_report_conversion(url) {
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <div class="nav-dropdown-menu">
-          <a href="vidrieria/">Quicios, mamparas y vidrios</a>
+          <a href="quicios-vidrios/">Quicios, mamparas y vidrios</a>
           <a href="electricidad/">Soluciones eléctricas y electrónicas</a>
         </div>
       </div>
@@ -241,7 +117,7 @@ function gtag_report_conversion(url) {
     <a href="#contacto">Contacto</a>
     <div class="nav-mobile-divider"></div>
     <span class="nav-mobile-label">Otros servicios</span>
-    <a href="vidrieria/">Quicios, mamparas y vidrios</a>
+    <a href="quicios-vidrios/">Quicios, mamparas y vidrios</a>
     <a href="electricidad/">Soluciones eléctricas y electrónicas</a>
     <div class="nav-mobile-divider"></div>
     <a class="btn btn-primary nav-mobile-wa-btn" href="#" target="_blank" rel="noopener">
@@ -292,38 +168,6 @@ function gtag_report_conversion(url) {
         </svg>
         <div class="glow"></div>
         <img src="assets/img/hero-key.png" alt="Llave inteligente CerraVolt">
-      </div>
-    </div>
-  </section>
-
-  <section id="situaciones">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">¿Te suena familiar?</div>
-        <h2>Situaciones que resolvemos todos los días</h2>
-        <p>No esperes al día siguiente. Estas son las emergencias que más nos llaman — y las resolvemos el mismo día.</p>
-      </div>
-      <div class="pain-grid">
-        <div class="pain-card">
-          <div class="pain-n">01 — Urgencia</div>
-          <h3>¿Te quedaste fuera de tu casa?</h3>
-          <p>Perdiste las llaves o se te dañó la cerradura. Llegamos cualquier día, a cualquier hora, y solucionamos el problema en el momento.</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-n">02 — Seguridad</div>
-          <h3>¿Fuiste víctima de un robo o quieres reforzar tu seguridad?</h3>
-          <p>Reforzamos y mejoramos la seguridad de tu puerta para que vuelvas a sentirte tranquilo en tu hogar o negocio.</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-n">03 — Modernización</div>
-          <h3>¿Todavía dependes de las llaves?</h3>
-          <p>Instalamos cerraduras digitales que facilitan el acceso sin necesidad de llaves, con más comodidad y control.</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-n">04 — Empresa</div>
-          <h3>¿Necesitas controlar quién entra a tu oficina?</h3>
-          <p>Instalamos sistemas de control de acceso con huella, clave o tarjeta para condominios, edificios y locales comerciales.</p>
-        </div>
       </div>
     </div>
   </section>

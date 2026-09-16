@@ -431,30 +431,6 @@
   .commune-btn:hover{background:var(--bg-elevated-2); border-color:var(--blue-400); color:var(--steel-100);}
   .commune-btn svg{flex-shrink:0; color:var(--blue-400);}
 
-  /* ---------- Pain points ---------- */
-  .pain-grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px;
-    margin-bottom:0;
-  }
-  .pain-card{
-    border:1px solid var(--line); border-radius:var(--radius);
-    padding:28px 24px; background:var(--bg-elevated);
-    position:relative; overflow:hidden;
-  }
-  .pain-card::before{
-    content:''; position:absolute; top:0; left:0; right:0; height:2px;
-    background:linear-gradient(90deg, var(--blue-500), var(--blue-400));
-    opacity:0;
-    transition:opacity .3s ease;
-  }
-  .pain-card:hover::before{opacity:1;}
-  .pain-card .pain-n{
-    font-family:var(--mono); font-size:11px; letter-spacing:0.1em;
-    text-transform:uppercase; color:var(--blue-400); margin-bottom:12px;
-  }
-  .pain-card h3{font-family:var(--display); font-size:18px; font-weight:600; margin-bottom:10px;}
-  .pain-card p{font-size:14px; color:var(--steel-500); line-height:1.6;}
-
   /* ---------- Reseñas de Google ---------- */
   .reviews-grid{
     display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;
